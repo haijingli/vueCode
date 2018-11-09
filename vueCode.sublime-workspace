@@ -1,0 +1,382 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"bo",
+				"border\tproperty"
+			],
+			[
+				"re",
+				"required\tAttr"
+			],
+			[
+				"pa",
+				"placeholder\tAttr"
+			],
+			[
+				"m",
+				"multiple\tAttr"
+			],
+			[
+				"da",
+				"datalist\tTag"
+			],
+			[
+				"l",
+				"list\tAttr"
+			],
+			[
+				"in",
+				"input\tTag"
+			],
+			[
+				"ac",
+				"action\tAttr"
+			],
+			[
+				"n",
+				"number"
+			],
+			[
+				"h",
+				"h1\tTag"
+			],
+			[
+				"fo",
+				"footer\tTag"
+			],
+			[
+				"he",
+				"header\tTag"
+			],
+			[
+				"font",
+				"font-size\tproperty"
+			],
+			[
+				"ba",
+				"background-color\tproperty"
+			],
+			[
+				"fon",
+				"font-size\tproperty"
+			],
+			[
+				"ho",
+				"hovered"
+			],
+			[
+				"ge",
+				"getElementById"
+			],
+			[
+				"hov",
+				"hovered"
+			],
+			[
+				"fl",
+				"float\tproperty"
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"met",
+				"meta\tTag"
+			],
+			[
+				"me",
+				"meta\tTag"
+			],
+			[
+				"ti",
+				"title\tTag"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"gitp",
+				"Git: Pull"
+			],
+			[
+				"ssjs",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"pci",
+				"Package Control: Install Package"
+			],
+			[
+				"ss:js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"ss:html",
+				"Set Syntax: HTML"
+			],
+			[
+				"ss:css",
+				"Set Syntax: CSS"
+			],
+			[
+				"Package Control: i",
+				"Package Control: Install Package"
+			],
+			[
+				"gitc",
+				"Git: Commit"
+			],
+			[
+				"gitl",
+				"Git: Log Current File"
+			],
+			[
+				"GITDI",
+				"Git: Diff Current File"
+			],
+			[
+				"gits",
+				"Git: Status"
+			],
+			[
+				"gita",
+				"Git: Add..."
+			],
+			[
+				"git",
+				"Git: Pull"
+			],
+			[
+				"git co",
+				"Git: Commit"
+			],
+			[
+				"git:add",
+				"Git: Add Current File"
+			],
+			[
+				"isp",
+				"Package Control: Install Package"
+			],
+			[
+				"pcr",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: r",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/sublimeWorkspace/html5/canvas/example-online.html",
+		"/C/sublimeWorkspace/html5/html5form/example4.1-1.html",
+		"/C/sublimeWorkspace/html5/html5form/example4.2-1.html",
+		"/C/sublimeWorkspace/vue/package.json",
+		"/C/sublimeWorkspace/html5/example1.4-1-c.html",
+		"/C/sublimeWorkspace/html5/canvas/example-5.2.3.html",
+		"/C/Users/ludehu/AppData/Roaming/Sublime Text 3/Installed Packages/SublimeLinter-contrib-htmlhint.sublime-package",
+		"/C/sublimeWorkspace/html5/canvas/test.js",
+		"/C/Users/ludehu/.npmrc",
+		"/C/Program Files/nodejs/node_modules/npm/npmrc",
+		"/C/sublimeWorkspace/html5/css/style.css",
+		"/C/sublimeWorkspace/html5/example3.5-1.html",
+		"/C/我的资料/html5+css3/本书源代码和示例/5/认识HTML 5 canvas元素/index.html",
+		"/C/sublimeWorkspace/html5/hellogit.html",
+		"/C/sublimeWorkspace/html5/Sublime Text3快捷键大全.txt",
+		"/C/sublimeWorkspace/html5/example1.4-1.html",
+		"/C/sublimeWorkspace/html5/example3.1-1.html",
+		"/C/我的资料/html5+css3/本书源代码和示例/4/新增的input属性/index12.html",
+		"/C/我的资料/html5+css3/本书源代码和示例/2/HTML5/设计半透明色.html",
+		"/C/Users/ludehu/AppData/Roaming/Sublime Text 3/Packages/User/Git.sublime-settings",
+		"/C/Users/ludehu/AppData/Roaming/Sublime Text 3/Packages/Git/Git.sublime-settings",
+		"/C/Users/ludehu/AppData/Roaming/Sublime Text 3/Packages/ColorPicker/README.md",
+		"/C/Users/ludehu/AppData/Roaming/Sublime Text 3/Packages/Package Control/Package Control.sublime-settings",
+		"/C/sublimeWorkspace/html5/example3.3-4.html",
+		"/C/sublimeWorkspace/html5/css/reset.css",
+		"/C/Users/ludehu/.ssh/id_rsa",
+		"/C/sublimeWorkspace/html5/README.md",
+		"/C/Users/ludehu/Desktop/interface/interface/InterfaceService.java",
+		"/C/Users/ludehu/Desktop/interface/interface/InterfaceAction.java",
+		"/C/Users/ludehu/AppData/Local/Temp/is-TE6O5.tmp/editor-test.txt",
+		"/C/sublimeWorkspace/html5/js/jquery-1.4.3.min.js",
+		"/C/sublimeWorkspace/html5/fancybox/jquery.fancybox-1.3.4.js",
+		"/C/sublimeWorkspace/html5/example3.3-2.html",
+		"/C/sublimeWorkspace/html5/eda.html",
+		"/C/sublimeWorkspace/html5/helloworld.html",
+		"/C/sublimeWorkspace/html5/example2.1-1.html",
+		"/C/sublimeWorkspace/html5/example2.3-1.html",
+		"/C/sublimeWorkspace/html5/example3.3-3.html",
+		"/C/sublimeWorkspace/html5/example3.3-1.html",
+		"/C/sublimeWorkspace/html5/HTML1.4-1",
+		"/C/Users/ludehu/AppData/Roaming/Sublime Text 3/Packages/User/View In Browser.sublime-settings",
+		"/C/Users/ludehu/AppData/Roaming/Sublime Text 3/Packages/View In Browser/View In Browser.sublime-settings"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "vueCode.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 203.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
