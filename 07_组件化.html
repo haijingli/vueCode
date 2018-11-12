@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>模板组件化</title>
+</head>
+<body>
+	<div id="app"></div>
+	<script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		//1、创建子 2、声明子 3、使用子
+		//头部组件
+		var MyHeader ={
+			template:'<div>我是头部</div>'
+		};
+		//中部组件,语法糖写法 简单
+		var MyBody = {
+			template:'<div>我是中部</div>'
+		};
+		//函数调用的方式创建组件，使用较少
+		var MyBody1 = Vue.extend({
+			template:'<div>我是函数调用方式的中部</div>'
+		});
+
+		//底部组件
+		var MyFooter = {
+			template:`
+				<div>我是底部<button @click="showNum(123)">点我</button></div>
+			`,
+			methods:{
+				//函数名：函数体
+				showNum:function(num){
+					alert(num);
+				}
+			}
+		};
+		//1、创建（声明）入口组件
+		var App = {
+			components:{//声明要用的组件
+				'my-header':MyHeader,
+				'my-body':MyBody1,
+				'my-footer':MyFooter
+			},
+			//使用组件
+			template:`
+				<div>
+					<my-header/>
+					<my-body/>
+					<my-footer/>
+				</div>
+			`
+		};
+		new Vue({
+			el:'#app',
+			components:{//2、声明要用的组件
+				//key是组件名，value是组件对象
+				app:App,
+			},
+			template:'<app/>'//3、使用入口组件
+		});
+
+		
+	</script>
+</body>
+</html>

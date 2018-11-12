@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>父向子传递参数+复习</title>
+</head>
+<body>
+	<div id="app"></div>
+	<script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		var Son ={
+			template:`
+				<div>
+					接收到的父组件是：{{title}}<br/>
+					接收到的父组件常量是：{{titlev}}
+					<h1 v-if="xxx">1</h1>
+					<h1 v-show="xxx">2</h1>
+					<ul>
+						<li v-for="stu in ['张三','李四']">
+							{{stu}}
+						</li>
+					</ul>
+					<button @click="changeXxx">点我显示</button>
+					<hr/>
+					单向数据流（vue->html）
+					<input type="text" :value="myValue"/><br/>
+					双向数据流（vue->html->vue）
+					<input type="text" v-model="myValue"/><br/>
+					重点看下面的内容，我是myValue的值：↓↓↓↓<br/>
+					{{myValue}}
+				</div>
+			`,
+			data:function(){
+				return{
+					xxx:true,
+					myValue:'hello'
+				}
+			},
+			methods:{
+				changeXxx:function(){
+					this.xxx = !this.xxx;
+				}
+			},
+			//声明接收参数
+			props:['title','titlev']
+		};
+		//父向子传递，其实就是利用v-bind给元素的属性赋值，也可以传递常量值
+		var App ={
+			components:{
+				son:Son
+			},
+			template:`
+				<div>
+					<son :title="Mytext" titlev="hello titlev"></son>
+				</div>
+			`,
+			data:function(){
+				return {
+					Mytext :'hello'
+				}
+			}
+		};
+		new Vue({
+			el:'#app',
+			components:{
+				app:App
+			},
+			template:'<app/>'
+		});
+	</script>
+</body>
+</html>

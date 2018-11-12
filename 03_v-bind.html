@@ -15,7 +15,11 @@
 			//template:装载的模板
 			template:`
 				<div>
+					<!--v-bind:属性名="变量名" b-bind用于绑定属性 简写 :属性名 :file=" '常量' "  赋值常量时添加''-->
 					<input type="text" v-bind:value="myValue" :file=" 'xxx' "/>
+					<!--v-on用于绑定事件 v-on:事件名="" v-on:click简写 @click=""-->
+					<button v-on:click=" myValue='abc' ">点我改变myValue</button>
+					<button @click=" myValue='bcd' ">简写改变value的值</button>
 				</div>
 			`,
 			//动态数据的声明

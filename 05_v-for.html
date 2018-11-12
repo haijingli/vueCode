@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-vor</title>
+	<style type="text/css">
+		.a{
+			background-color: red;
+		}
+		.b{
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<div id="app"></div>
+	<script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		new Vue({
+			el:'#app',
+			template:`
+				<div>
+					v-for遍历数组，基本语法v-for="item in arr"  辅助属性（item,index）in stus
+					<ul>
+						<li v-for="item in stus" :class="item.myClass">
+							{{item.name}}
+						</li>
+					</ul>
+					<hr/>
+					v-for遍历对象 v-for="item in obj" 辅助属性(val,key,index) in stus2
+					<ul>
+						<li v-for="(val,key,index) in stus2">
+							{{index}}{{val}}{{key}}
+						</li>
+					</ul>
+				</div>
+			`,
+			data:function(){
+				return {
+					stus:[{name:'张三',myClass:'a'},{name:'李四',myClass:'b'},{name:'王五',myClass:'a'}],
+					stus2:{'A':'张三','B':'李四','C':'王五'}
+				}
+			}
+		});
+	</script>
+</body>
+</html>	
