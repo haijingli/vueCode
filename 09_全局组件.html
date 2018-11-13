@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>全局组件</title>
+</head>
+<body>
+	<div id="app"></div>
+	<script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		//创建全局组件，（用于组件被多次使用的情况）简写，写法一（'组件名',组件体）
+		Vue.component('my-btn',{
+			template:`
+				<button>我是漂亮的按钮</button>
+			`
+		});
+		/*//创建全局组件
+		var MyBtn = {
+			template:`
+				<button>我是漂亮的按钮</button>
+			`
+		};
+		//注册全局组件 写法二
+		Vue.component('my-btn',MyBtn);*/
+		
+		//使用全局组件的组件不需要用components声明，直接使用
+		var MyHeader ={
+			template:`
+				<div>
+					我是头部组件
+					<my-btn></my-btn>
+				</div>
+			`
+		};
+		var MyFooter ={
+			template:`
+				<div>
+					我是底部组件
+					<my-btn></my-btn>
+				</div>
+			`
+		};
+		//入口组件
+		var App = {
+			components:{
+				'my-header':MyHeader,
+				'my-footer':MyFooter
+			},
+			template:`
+				<div>
+					<my-header/>
+					<my-footer/>
+					<my-btn></my-btn>
+				</div>
+			`
+		}
+		new Vue({
+			el:'#app',
+			components:{
+				app:App
+			},
+			template:'<app/>'
+		});
+	</script>
+</body>
+</html>
