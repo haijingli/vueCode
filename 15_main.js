@@ -58,15 +58,32 @@ var Test = {
 	//应用：beforeUpdate可以获取员DOM，
 	//updated 获取新DOM
 
-	// 销毁之前 对应父组件的v-if = false 就销毁当前组件
+	// 销毁之前 对应父组件中设置的指令v-if = false 就销毁当前组件
 	beforeDestroy:function(){
 		console.log('beforeDestroy');
 	},
 	//销毁之后
 	destroyed:function(){
 		console.log('destroyed');
-	}
+	},
 	// 销毁，最终都是做一些其他功能的释放，比如：保存数据到localStorage
+
+	//组件如果频繁的创建和销毁，影响使用和页面响应，因此可以将组件
+	//缓存起来，通过vue的内置标签<keep-alive></keep-alive>进行包裹
+
+	//同样，缓存起来的组件也有对应的事件来监控组件的状态
+	//activated和deactivated
+	activated:function(){
+		console.log('我是被激活的组件');
+	},
+	deactivated:function(){
+		console.log('我是被停用的组件');
+	}
+
+	//用<keep-alive>标签包裹的组件，调用activated和deactivated函数，
+	//没被<keep-alive>包裹的组件，创建和销毁时使用created（beforeCreate）和destroyed（beforeDestroy）
+	//ps：前提，组件使用了v-if指令，改变组件的插入和移除状态时触发相关事件
+	//需要经常被插入和移除的组件需要用<keep-alive>标签包裹
 };
 
 var App = {
@@ -80,7 +97,13 @@ var App = {
 	},
 	template: `
 		<div>
+			<!--
+			<keep-alive>
+				<test v-if="isExist"></test>
+			</keep-alive>
+			-->
 			<test v-if="isExist"></test>
+
 			<button @click="isExist = !isExist">点我改变组件生死</button>
 		</div>
 	`
