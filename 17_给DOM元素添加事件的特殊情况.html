@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>给DOM元素添加事件的特殊情况</title>
+</head>
+<body>
+	<div id="app"></div>
+	<script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		var App ={
+			template:`
+				<div>
+					<input type="text" v-if="isShow" ref="myInput"/>
+				</div>
+			`,
+			data:function(){
+				return{
+					isShow:false
+				}
+			},
+			mounted:function(){
+				//装载数据之后，显示元素，并让元素获取焦点
+				//插入元素
+				this.isShow =  true;
+				//思考
+				this.isShow = false;
+				this.isShow = true;
+
+				//注意：this.isShow执行完后input元素不会立即插入，要等代码执行完毕后，得到最终的值，vue才会根据最终的值，进行DOM操作。
+				//因此下面的获取焦点代码不能执行成功，因为DOM还没被创建
+
+				//给input元素获取焦点
+				//this.$refs.myInput.focus();
+				//异常：TypeError: Cannot read property 'focus' of undefined
+
+				//解决方法：该方法可以让vue的组件DOM真正渲染到页面以后再执行
+				this.$nextTick(function(){
+					this.$refs.myInput.focus();
+				});
+			}
+		};
+
+		var vm = new Vue({
+			el:'#app',
+			components:{
+				app:App
+			},
+			template:'<app/>'
+
+		});
+	</script>
+</body>
+</html>

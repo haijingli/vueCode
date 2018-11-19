@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>路由权限控制-路由守护</title>
+</head>
+<body>
+	<div id="app"></div>
+	<script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+	<script type="text/javascript" src="./node_modules/vue-router/dist/vue-router.js"></script>
+	<script type="text/javascript">
+		var isLogin = false;
+		var Login = {
+			template:`<div>
+				我是登录页面
+			</div>`,
+			created:function(){
+				isLogin = true;
+			}
+		};
+
+		var Music = {
+			template:`<div>
+				可以听音乐了
+			</div>`
+		};
+
+		/*var router = new VueRouter({
+			routes:[
+				{name:'login',path:'/login',component:Login},
+				{name:'register',path:'/register',component:Register}
+			]
+		});*/
+		var router = new VueRouter();
+		//可以多次追加路由规则，动态获取路由规则，方便调用后动态的追加路由规则
+		router.addRoutes([
+			{path:'/',redirect:{name:'login'}},
+			{name:'login',path:'/login',component:Login},
+			//meta:{isChecked:true}是对未来路由的访问进行权限控制，做全局路由守卫
+			{name:'music',path:'/music',component:Music,meta:{isChecked:true}}
+		]);
+
+		//路由钩子，每次路由匹配之后，渲染组件到router-view之前执行
+		router.beforeEach(function(to,from,next){
+			console.log(to);
+			if(!to.meta.isChecked){
+				next();//继续执行，渲染组件到router-view
+			}else{
+				if(isLogin){
+					next();
+				}else{
+					alert('请先登录');
+					next({name:'login'});
+				}
+			}
+		});
+
+		var App = {
+			template:`
+				<div>
+					<router-link :to=" {name:'login'}">登录</router-link>
+					<router-link :to=" {name:'music'}">听音乐</router-link>
+					<router-view ></router-view>
+				</div>
+			`
+		};
+
+		new Vue({
+			el:'#app',
+			router:router,
+			components:{
+				app:App
+			},
+			template:'<app/>'
+		})
+
+
+	</script>
+</body>
+</html>

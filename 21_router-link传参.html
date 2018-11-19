@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>router-link参数获取</title>
+</head>
+<body>
+	<div id="app"></div>
+	<script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+	<!--1:引入vue-router.js 路由核心插件-->
+	<script type="text/javascript" src="./node_modules/vue-router/dist/vue-router.js"></script>
+	<script type="text/javascript">
+		var Login = {
+			template:`<div>
+				我是登录页面
+			</div>`,
+			created:function(){
+				//通过this.$route获取请求参数(锚点值跳转之后)，相当于之前web应用的request
+				console.log(this.$route.query);
+				//console.log(this.$route.query.id);
+			}
+		};
+		var Register = {
+			template:`<div>
+				我是注册页面
+			</div>`,
+			created:function(){
+				//通过this.$route获取请求参数
+				console.log(this.$route.params);
+				//console.log(this.$route.params.id);
+			}
+		};
+		//2:注册插件
+		Vue.use(VueRouter);
+		//3:创建路由对象
+		var router = new VueRouter({
+			//配置路由对象
+			routes:[
+				//query方式不需要处理，传统的url传参方式(查询字符串方式) 例如：#/login?id=1
+				{name:'login',path:'/login',component:Login},
+				//:params参数传递方式（path方式），需要用/:name占位  生成的href：#/register/abc
+				{name:'register',path:'/register/:name',component:Register}
+			]
+		});
+
+		//5:配置路由对象要显示的位置
+		var App = {
+			template:`<div>
+				<router-link :to="{ name:'login',query:{id:1} }" >登录</router-link>
+				<!--生成的DOM内容 <a href="#/login?id=1" class="">登录</a> -->
+
+				<router-link :to="{ name:'register',params:{name:'abc'} }">注册</router-link>
+				<!--生成的DOM内容 <a href="#/register/abc" class="">注册</a> -->
+
+				<!--路由内容要显示的位置，vue-router内置组件-->
+				<router-view></router-view>
+			</div>`
+		};
+
+		//6:将配置的路由规则应用到Vue实例中
+		var vm = new Vue({
+			el:'#app',
+			router:router,
+			components:{
+				app:App
+			},
+			template:'<app/>'
+		});
+	</script>
+</body>
+</html>

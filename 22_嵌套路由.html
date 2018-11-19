@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>嵌套路由</title>
+</head>
+<body>
+	<div id="app"></div>
+	<script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+	<script type="text/javascript" src="./node_modules/vue-router/dist/vue-router.js"></script>
+	<script type="text/javascript">
+		var Woman = {
+			template:`<div>
+				我是女性登录组件
+			</div>`
+		}
+		var Man = {
+			template:`<div>
+				我是男性登录组件
+			</div>`
+		}
+		var Login = {
+			template:`<div>
+				我是登录页面,router-view包含router-view即嵌套路由
+				<router-view></router-view>
+			</div>`
+		};
+		var Register = {
+			template:`<div>
+				我是注册页面
+				<router-view></router-view>
+			</div>`
+		};
+		Vue.use(VueRouter);
+		var router = new VueRouter({
+			routes:[
+				{
+					name:'login',path:'/login',component:Login,
+					//嵌套路由需要配置children
+					children:[
+						//访问url为  #/login/woman ,如果希望直接输入/woman 访问，则下面的path设置为path:'/woman'
+						{name:'woman',path:'woman',component:Woman},
+						//{name:'woman',path:'/woman',component:Woman},
+						//访问url为  #/login/man
+						{name:'man',path:'man',component:Man}					
+					]
+				},
+				{
+					name:'register',path:'/register',component:Register
+				}
+			]
+		});
+
+		var App = {
+			template:`<div>
+				<router-link :to="{ name:'woman'}">我是女性登录入口</router-link>
+				<router-view></router-view>
+			</div>`
+		};
+
+		new Vue({
+			el:'#app',
+			router:router,
+			components:{
+				app:App
+			},
+			template:'<app/>'
+		})
+	</script>
+</body>
+</html>

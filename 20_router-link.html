@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue-router-start</title>
+</head>
+<body>
+	<div id="app"></div>
+	<script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+	<!--1:引入vue-router核心插件对象-->
+	<script type="text/javascript" src="./node_modules/vue-router/dist/vue-router.js"></script>
+
+	<script type="text/javascript">
+		var Login = {
+			template:`<div>
+				我是登录页面
+			</div>`
+		};
+
+		var Register = {
+			template:`<div>
+				我是注册页面
+			</div>`
+		}
+
+		//2:安装插件
+		Vue.use(VueRouter);
+		//3:创建一个路由对象
+		var router = new VueRouter({
+			//4:配置路由对象
+			routes:[
+				//路由对象有了名称（name）就等于有了变量名,router-link只需引用这个变量名就可以了
+				{name:'login',path:'/login',component:Login},
+				{name:'register',path:'/register',component:Register}
+			]
+		});
+
+		//6:设置路由改变的局部的位置
+		var App ={
+			template:`
+				<div>
+					<!--vue-router内置组件
+					该写法不实用，如果路由对象中path的值修改了，需要改很多处，如/login => /mylogin 引用的地方都需改
+					<router-link to="/login">登录</router-link>
+					<router-link to="/register">注册</router-link>
+					-->
+
+					<router-link :to="{ name:'login' }">登录</router-link>
+					<router-link :to="{ name:'register' }">注册</router-link>
+
+					<!--vue-router内置组件-->
+					<router-view></router-view>
+				</div>
+			`
+		};
+		//5:将配置和的路由对象关联到vue实例中,如果没有配置该内容，会//"TypeError: Cannot read property 'matched' of undefined"
+		new Vue({
+			el:'#app',
+			router:router,//该行为路由和Vue的关联设置
+			components:{
+				app:App
+			},
+			template:'<app/>'
+		});
+		
+	</script>
+	
+</body>
+</html>

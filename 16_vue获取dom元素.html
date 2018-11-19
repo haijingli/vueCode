@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue 获取DOM元素</title>
+</head>
+<body>
+	<div id="app"></div>
+	<script type="text/javascript" src="./node_modules/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		//ref属性是vue提供的，ref元素用于DOM元素上,获取原生DOM对象，用于组件时获取的是组件对象
+		//获取DOM元素,通过组件对象的this.$refs.xxx
+		//<button ref="xxx">点我</button>  ==> 使用this.$refs.xxx
+		var TempComponent ={
+			template:`
+				<div>我是子组件</div>
+			`
+		};
+		Vue.component('temp',TempComponent);
+		var App ={
+			template:`
+				<div>
+					<temp ref="temp"/>
+					<button ref="btn">点我</button>
+				</div>
+			`,
+			beforeCreate:function(){
+				console.log(this.$refs.btn);
+			},
+			created:function(){
+				console.log(this.$refs.btn);
+			},
+			beforeMount:function(){
+				console.log(this.$refs.btn);
+			},
+			mounted:function(){
+				//装载数据之后才能获取this.$refs.btn
+				//console.log(this);
+				console.log(this.$refs.btn);
+				//ref用于子组件时，获取的是组件对象，获取到的对象相当于this，有$el
+				console.log(this.$refs.temp.$el);
+			}
+		};
+
+		// $属性： $refs 获取组件内容的元素
+		// $parent :获取当前组件对象的父组件 
+		// $children ： 获取子组件
+		// $root : 获取new Vue的示例 vm
+		// $el: 获取组件的DOM元素
+		var vm = new Vue({
+			el:'#app',
+			components:{
+				app:App
+			},
+			template:'<app/>'
+
+		});
+	</script>
+</body>
+</html>
