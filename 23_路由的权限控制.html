@@ -13,9 +13,19 @@
 		var Login = {
 			template:`<div>
 				我是登录页面
+				<button @click="goLogin">登录</button>
 			</div>`,
 			created:function(){
 				isLogin = true;
+			},
+			methods:{
+				goLogin:function(){
+					console.log(this.$router);
+					//编程导航 ：1： 跳到指定的锚点，并显示页面
+					this.$router.push({name:'music',query:{id:1},params:{name:'abc'}});
+					//2：配置规则{name:'music',path:'/music/:name',component:Music,meta:{isChecked:true}}
+					//3:根据历史纪录前进或后退this.$router.go(-1|1)
+				}
 			}
 		};
 
@@ -37,19 +47,21 @@
 			{path:'/',redirect:{name:'login'}},
 			{name:'login',path:'/login',component:Login},
 			//meta:{isChecked:true}是对未来路由的访问进行权限控制，做全局路由守卫
-			{name:'music',path:'/music',component:Music,meta:{isChecked:true}}
+			{name:'music',path:'/music/:name',component:Music,meta:{isChecked:true}}
 		]);
 
 		//路由钩子，每次路由匹配之后，渲染组件到router-view之前执行
 		router.beforeEach(function(to,from,next){
-			console.log(to);
+			//console.log(to);
 			if(!to.meta.isChecked){
-				next();//继续执行，渲染组件到router-view
+				next();//继续执行，渲染组件到router-view（放行）
+				//next(false) 取消用户导航
 			}else{
 				if(isLogin){
 					next();
 				}else{
 					alert('请先登录');
+					//重定向
 					next({name:'login'});
 				}
 			}
@@ -59,7 +71,7 @@
 			template:`
 				<div>
 					<router-link :to=" {name:'login'}">登录</router-link>
-					<router-link :to=" {name:'music'}">听音乐</router-link>
+					<router-link :to=" {name:'music',params:{name:'abc'}}">听音乐</router-link>
 					<router-view ></router-view>
 				</div>
 			`
